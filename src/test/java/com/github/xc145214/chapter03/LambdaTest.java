@@ -1,9 +1,9 @@
-package com.github.xc145214.chapter3;
+package com.github.xc145214.chapter03;
 
-import com.github.xc145214.chapter2.Apple;
-import com.github.xc145214.chapter2.AppleComparator;
-import com.github.xc145214.chapter2.AppleSimpleFormatter;
-import com.github.xc145214.chapter2.AppleUtils;
+import com.github.xc145214.chapter02.Apple;
+import com.github.xc145214.chapter02.AppleComparator;
+import com.github.xc145214.chapter02.AppleSimpleFormatter;
+import com.github.xc145214.chapter02.AppleUtils;
 import junit.framework.TestCase;
 
 import java.awt.*;

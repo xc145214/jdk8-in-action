@@ -1,10 +1,11 @@
-package com.github.xc145214.chpater4;
+package com.github.xc145214.chpater04;
 
-import com.github.xc145214.chapter4.Dish;
+import com.github.xc145214.chapter04.Dish;
 import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
@@ -56,6 +57,11 @@ public class DishTest extends TestCase {
         System.out.println(lowCaloricDishesName);
     }
 
+    /**
+     *
+     * java8 流方式处理。
+     * @throws Exception
+     */
     public void testDishNew() throws Exception {
         List<String> lowCaloricDishesName =
                 menu.stream()
@@ -77,8 +83,35 @@ public class DishTest extends TestCase {
                         .filter(d -> d.getCalories() < 400)
                         .sorted(comparing(Dish::getCalories))
                         .map(Dish::getName)
+                        .limit(3)
                         .collect(toList());
 
         System.out.println(lowCaloricDishesName);
+    }
+
+    public void testDishDetail() throws Exception {
+        List<String> lowCaloricDishesName =
+                menu.parallelStream()
+                        .filter(d ->
+                        {
+                            System.out.println("filtering " + d.getName());
+                           return d.getCalories() < 400;
+                        })
+                        .sorted(comparing(Dish::getCalories))
+                        .map(d -> {
+                            System.out.println("mapping " + d.getName());
+                            return d.getName();
+                        })
+                        .limit(3)
+                        .collect(toList());
+
+        System.out.println(lowCaloricDishesName);
+    }
+
+    public void testStringStream() throws Exception {
+       List<String> titles = Arrays.asList("java8","in","action");
+        Stream<String> s = titles.stream();
+        s.forEach(System.out::println);
+        s.forEach(System.out::println);
     }
 }

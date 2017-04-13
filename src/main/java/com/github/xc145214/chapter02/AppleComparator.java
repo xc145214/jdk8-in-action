@@ -1,4 +1,4 @@
-package com.github.xc145214.chapter2;
+package com.github.xc145214.chapter02;
 
 import java.util.Comparator;
 
