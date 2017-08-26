@@ -1,6 +1,5 @@
-package com.github.xc145214.chpater04;
+package com.github.xc145214.chapter04;
 
-import com.github.xc145214.chapter04.Dish;
 import junit.framework.TestCase;
 import org.junit.Test;
 
